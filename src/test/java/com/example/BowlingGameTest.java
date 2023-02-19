@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BowlingGameTest {
+class BowlingGameTest {
 
     List<Frame> frames;
     Game game = new Game(frames = new ArrayList<>());
@@ -18,18 +18,18 @@ public class BowlingGameTest {
 
 
     @Test
-    public void fullGameOffMissedRolls(){
+    void fullGameOffMissedRolls(){
         rollMany(20,0);
         assertEquals(0, game.score());
     }
     @Test
-    public void fullGameOffOnes(){
+    void fullGameOffOnes(){
         rollMany(20,1);
         assertEquals(20, game.score());
 
     }
     @Test
-    public void oneSpareThenFiveThenRestMiss(){
+    void oneSpareThenFiveThenRestMiss(){
         game.roll(5);
         game.roll(5);
         game.roll(5);
@@ -78,13 +78,13 @@ public class BowlingGameTest {
 
 
     @Test
-    public void testTenStrikes(){
+    void testTenStrikes(){
         rollMany(10,10);
         assertEquals(270, game.score());
     }
 
     @Test
-    public void PerfectGame(){
+    void PerfectGame(){
         rollMany(12,10);
         framesToString();
 
@@ -107,7 +107,7 @@ public class BowlingGameTest {
         game.roll(10);
         game.roll(5);
         game.roll(5);
-//      framesToString();
+        frames.forEach(System.out::println);
 
         rollMany(12, 0);
         assertEquals(85, game.score());
@@ -132,8 +132,10 @@ public class BowlingGameTest {
     }
 
     private void framesToString() {
-        for (Frame frame : frames) {
-            System.out.println(frame.toString());
-        }
+        frames.forEach(System.out::println);
+
     }
+
+
+
 }
