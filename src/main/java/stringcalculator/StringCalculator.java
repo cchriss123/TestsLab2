@@ -12,14 +12,17 @@ public class StringCalculator {
         if (numbers.contains(",\n"))
             throw new IllegalArgumentException("Invalid input");
 
-        String newDelimiter = ",";
+        if(numbers.contains("-"))
+            throw new IllegalArgumentException("Negatives not allowed: " + numbers);
+
+        String delimiter = ",";
         if (numbers.startsWith("//")) {
-            newDelimiter = numbers.substring(2, 3);
+            delimiter = numbers.substring(2, 3);
             numbers = numbers.substring(4);
         }
 
-        numbers = numbers.replace("\n", newDelimiter);
-        return Arrays.stream(numbers.split(newDelimiter)).mapToInt(Integer::parseInt).sum();
+        numbers = numbers.replace("\n", delimiter);
+        return Arrays.stream(numbers.split(delimiter)).mapToInt(Integer::parseInt).sum();
 
     }
 }
