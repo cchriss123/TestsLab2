@@ -33,6 +33,19 @@ class StringCalculatorTest {
         assertEquals(   12, actual);
     }
 
+    @Test
+    void shouldWorkWithBackslashAndReturnSix(){
+        int actual = stringCalculator.add("1\n2,3");
+        assertEquals(6,actual);
+    }
+
+
+    @Test
+    void shouldReplaceDelimiterAndReturnThree(){
+        int actual = stringCalculator.add("//;\n1;2");
+        assertEquals(3,actual);
+    }
+
 
 
 
