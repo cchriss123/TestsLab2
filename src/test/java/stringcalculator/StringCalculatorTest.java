@@ -11,9 +11,17 @@ class StringCalculatorTest {
 
     @Test
     void emptyStringShouldReturnZero(){
-        int expected = stringCalculator.add("");
-        assertEquals(0, expected);
+        int actual = stringCalculator.add("");
+        assertEquals(0, actual);
     }
+
+    @Test
+    void shouldReturnNumberThatIsPutIn(){
+        int actual = stringCalculator.add("2");
+        assertEquals(2, actual);
+    }
+
+
 
 
 
