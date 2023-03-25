@@ -21,6 +21,18 @@ class StringCalculatorTest {
         assertEquals(2, actual);
     }
 
+    @Test
+    void oneAndTwoShouldReturnThree(){
+        int actual = stringCalculator.add("1,2");
+        assertEquals(   3, actual);
+    }
+
+    @Test
+    void threeTreeTreeTreeShouldReturnTwelve(){
+        int actual = stringCalculator.add("3,3,3,3");
+        assertEquals(   12, actual);
+    }
+
 
 
 
