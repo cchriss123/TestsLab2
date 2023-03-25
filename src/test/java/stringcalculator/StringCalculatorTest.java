@@ -55,6 +55,12 @@ class StringCalculatorTest {
         assertEquals("Negatives not allowed: -1,-2", actualMessage);
     }
 
+    @Test
+    void numbersAbove1000ShouldBeIgnored(){
+        int actual = stringCalculator.add("3,3,3,3,1001");
+        assertEquals(   12, actual);
+    }
+
 
 
 
