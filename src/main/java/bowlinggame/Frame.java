@@ -1,4 +1,4 @@
-package BowlingGame;
+package bowlinggame;
 
 public class Frame {
     @Override

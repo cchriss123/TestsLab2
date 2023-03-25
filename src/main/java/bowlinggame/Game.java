@@ -1,5 +1,5 @@
 
-package BowlingGame;
+package bowlinggame;
 import java.util.List;
 
 public class Game {

@@ -1,6 +1,6 @@
 package com.example;
-import BowlingGame.Frame;
-import BowlingGame.Game;
+import bowlinggame.Frame;
+import bowlinggame.Game;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
