@@ -68,8 +68,19 @@ class StringCalculatorTest {
     }
 
 
+    @Test
+    void multipleDelimitersShouldReturnSix(){
+        int actual = stringCalculator.add("//[*][%]\n1*2%3");
 
+        assertEquals(6,actual);
+    }
 
+    @Test
+    void multipleDelimitersLongerShouldReturnSix(){
+        int actual = stringCalculator.add("//[ASD][QWE]\n1ASD2QWE3");
+
+        assertEquals(6,actual);
+    }
 
 
 }
