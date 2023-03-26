@@ -61,6 +61,12 @@ class StringCalculatorTest {
         assertEquals(   12, actual);
     }
 
+    @Test
+    void delimiterCanBeAnyLength(){
+        int actual = stringCalculator.add("//[***]\n1***2***3");
+        assertEquals(6,actual);
+    }
+
 
 
 
