@@ -5,12 +5,13 @@ import java.util.List;
 public class Game {
 
     private int rollCounter;
+    List <Frame> frames;
 
     public Game(List<Frame> frames) {
         this.frames = frames;
     }
 
-    List<Frame> frames;
+
 
     public void roll(int pins) {
         rollCounter++;

@@ -2,9 +2,13 @@ package com.example;
 import bowlinggame.Frame;
 import bowlinggame.Game;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,7 +18,6 @@ class BowlingGameTest {
 
     List<Frame> frames;
     Game game = new Game(frames = new ArrayList<>());
-
 
 
     @Test
@@ -128,7 +131,6 @@ class BowlingGameTest {
 
 
         assertEquals(270,game.score());
-
     }
 
     private void framesToString() {
@@ -136,6 +138,18 @@ class BowlingGameTest {
 
     }
 
+    @ParameterizedTest
+    @MethodSource("getGames")
+    void shouldGiveCorrectScore(List<Integer> pins, int expectedResult) {
+        for (Integer pin : pins) game.roll(pin);
+        assertEquals(expectedResult, game.score());
+    }
 
+    static Stream<Arguments>getGames(){
+        return Stream.of(
+                Arguments.of(List.of(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),0),
+                Arguments.of(List.of(0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,10,5,5),25),
+                Arguments.of(List.of(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,10,10),30));
 
+    }
 }
